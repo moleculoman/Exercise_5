@@ -18,6 +18,8 @@ public class DragAndDropTest {
     @DisplayName("Проверка перемещение элементов с помощью actions()")
     void moveElementByActionsTest() {
         open("/drag_and_drop");
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
         actions().clickAndHold($("#column-a")).moveToElement($("#column-b")).release().perform();
         $("#column-a").shouldHave(text("B"));
         $("#column-b").shouldHave(text("A"));
@@ -28,6 +30,8 @@ public class DragAndDropTest {
     @DisplayName("Проверка перемещение элементов с помощью dragAndDrop()")
     void moveElementByDragAndDropTest() {
         open("/drag_and_drop");
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
         $("#column-a").dragAndDropTo($("#column-b"));
         $("#column-a").shouldHave(text("B"));
         $("#column-b").shouldHave(text("A"));
